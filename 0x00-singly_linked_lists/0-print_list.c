@@ -1,12 +1,23 @@
 #include "lists.h"
 
 /**
- * main - print base file
+ * print_list - print_list
+ * @h: list
  *
- * Return: 0 (Success)
+ * Return: size of the list
  */
-int main(void)
+size_t print_list(const list_t *h)
 {
-	printf("%s\n", __BASE_FILE__);
-	return (0);
+	size_t i = 0;
+
+	while (h != NULL)
+	{
+		if (h->str == NULL || h->len == 0)
+			printf("[0] (nil)\n");
+		else
+			printf("[%d] %s\n", h->len, h->str);
+		h = h->next;
+		i++;
+	}
+	return (i);
 }
