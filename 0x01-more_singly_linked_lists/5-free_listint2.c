@@ -1,7 +1,7 @@
 #include "lists.h"
 
 /**
- * free_listint - free_listint
+ * free_list - free_list
  * @head: head
  *
  * void
@@ -12,6 +12,7 @@ void free_list(listint_t **head)
 		return;
 	free_list(&((*head)->next));
 	free(*head);
+	*head = NULL;
 }
 
 /**
