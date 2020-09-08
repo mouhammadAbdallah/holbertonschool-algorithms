@@ -23,6 +23,8 @@ void free_list(listint_t **head)
  */
 void free_listint2(listint_t **head)
 {
+	if (head == NULL)
+		return;
 	free_list(head);
 	*head = NULL;
 }
