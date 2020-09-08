@@ -5,10 +5,10 @@
  * @head: Linked list.
  * Return: Loop length.
  */
-int floyds_cycle2(const listint_t *head)
+size_t floyds_cycle2(const listint_t *head)
 {
 	const listint_t *slow_p, *fast_p;
-	int nodes = 1;
+	size_t nodes = 1;
 
 	if (head == NULL || head->next == NULL)
 		return (0);
@@ -40,10 +40,10 @@ int floyds_cycle2(const listint_t *head)
  * @h: Linked list.
  * Return: Number of nodes in list.
  */
-int free_listint_safe(listint_t **h)
+size_t free_listint_safe(listint_t **h)
 {
 	listint_t *aux;
-	int nodes = floyds_cycle2(*h), id;
+	size_t nodes = floyds_cycle2(*h), id;
 
 	if (nodes == 0)
 	{
