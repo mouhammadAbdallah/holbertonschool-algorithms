@@ -10,4 +10,5 @@ created by: [Mohamad ABDALLAH](https://www.linkedin.com/in/m-abdallah/)
 ## This repository contains:
 
 * 0x00-singly_linked_lists
+* 0x01-more_singly_linked_lists
 
