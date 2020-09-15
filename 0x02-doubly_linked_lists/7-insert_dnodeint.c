@@ -1,43 +1,50 @@
 #include "lists.h"
 
 /**
- * insert_dnodeint_at_index - insert_dnodeint_at_index
- * @h: head
- * @idx: index
- * @n: data
+ * insert_dnodeint_at_index - inserts a new node at a given position
+ * @h: list
+ * @idx: position
+ * @n: new node
  *
- * Return: new node
+ * Return: address of new node or NULL if failure
  */
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
-	unsigned int id;
-	dlistint_t *current = *h;
-	dlistint_t *new;
+	dlistint_t *new, *runner = *h;
+	unsigned int i;
+
+	if (h == NULL)
+		return (NULL);
 
 	new = malloc(sizeof(dlistint_t));
-	if (!new)
+	if (new == NULL)
 		return (NULL);
 	new->n = n;
-	new->next = NULL;
-	new->prev = NULL;
-	current = *h;
-	if (*h == NULL && idx > 0)
-		return (free(new), NULL);
-	if (idx == 0)
+
+	if (*h == NULL)
 	{
-		new->next = *h;
+		new->next = NULL;
 		new->prev = NULL;
 		*h = new;
 		return (new);
 	}
-	for (id = 0; id < idx - 1; id++)
+
+	if (idx == 0)
+		return (add_dnodeint(h, n));
+
+	for (i = 0; i < idx - 1; i++)
 	{
-		current = current->next;
-		if (current == NULL && idx - id > 0)
-			return (free(new), NULL);
+		if (runner == NULL)
+			return (NULL);
+		runner = runner->next;
 	}
-	new->next = current->next;
-	current->next = new;
-	new->prev = current;
+
+	if (runner->next == NULL)
+		return (add_dnodeint_end(h, n));
+
+	new->next = runner->next;
+	runner->next->prev = new;
+	runner->next = new;
+	new->prev = runner;
 	return (new);
 }
