@@ -10,15 +10,17 @@
 char *hash_table_get(const hash_table_t *ht, const char *key)
 {
 	unsigned long int index;
-	hash_node_t *list;
+	hash_node_t *tmp = NULL;
 
-	index = key_index((unsigned char *)key, ht->size);
-	list = (ht->array)[index];
-	while (list != NULL)
-		if (!strcmp(list->key, key))
-			break;
-	list = list->next;
-	if (list == NULL)
+	if (!ht || !key || strlen(key) == 0)
 		return (NULL);
-	return (list->value);
+	index = key_index((const unsigned char *)key, ht->size);
+	tmp = ht->array[index];
+	while (tmp != NULL)
+	{
+		if (strcmp(tmp->key, key) == 0)
+			return (tmp->value);
+		tmp = tmp->next;
+	}
+	return (NULL);
 }
