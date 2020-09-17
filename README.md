@@ -12,4 +12,4 @@ created by: [Mohamad ABDALLAH](https://www.linkedin.com/in/m-abdallah/)
 * 0x00-singly_linked_lists
 * 0x01-more_singly_linked_lists
 * 0x02-doubly_linked_lists
-
+* 0x03-hash_tables
