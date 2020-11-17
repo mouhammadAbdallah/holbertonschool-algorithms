@@ -14,4 +14,6 @@ created by: [Mohamad ABDALLAH](https://www.linkedin.com/in/m-abdallah/)
 * 0x02-doubly_linked_lists
 * 0x03-hash_tables
 * 0x04-graphs
+* 0x05-pathfinding
+* 0x06-nary_trees
 
